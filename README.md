@@ -10,7 +10,7 @@
 ---
 
 <!-- Replace with your screenshot: recommended 1400×860 px, save as images/screenshot_main.png -->
-![UML Annotator — Main Interface](screenshot-uml-annotator.png)
+![UML Annotator — Main Interface](screenshot.png)
 
 ---
 
