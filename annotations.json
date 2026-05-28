@@ -1,0 +1,4814 @@
+{
+  "1.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-20T02:06:57.372Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML diagram represents an ordering system where a customer places Orders that contain multiple Order Lines. The customer class has two specialized subclasses:\nCorporate and Personal. Orders store product and pricing information, while Order Lines track quantity and product details.",
+    "classes": [
+      {
+        "name": "Order",
+        "attributes": [
+          "date",
+          "product",
+          "number",
+          "price"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Customer",
+        "attributes": [
+          "name",
+          "address",
+          "ratings"
+        ],
+        "methods": []
+      },
+      {
+        "name": "OrderLine",
+        "attributes": [
+          "product",
+          "price",
+          "quantity"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Corporate",
+        "attributes": [
+          "name",
+          "rating",
+          "limit"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Personal",
+        "attributes": [
+          "id",
+          "contact"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Customer",
+        "target": "Order",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Order",
+        "target": "OrderLine",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Corporate",
+        "target": "Customer",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Personal",
+        "target": "Customer",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "2.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-20T02:13:20.484Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML Diagram represents the Bridge design pattern. The abstraction class maintains a reference to an Implementor, while Refine extends Abstraction and ConcreteImplementor extends Implementor. The structure separates abstraction from implementation to allow independent variation.",
+    "classes": [
+      {
+        "name": "Abstraction",
+        "attributes": [
+          "func"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Implementor",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Refine",
+        "attributes": [
+          "ref"
+        ],
+        "methods": []
+      },
+      {
+        "name": "ConcreteImplementor",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Abstraction",
+        "target": "Implementor",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Refine",
+        "target": "Abstraction",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "ConcreteImplementor",
+        "target": "Implementor",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "3.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-20T03:06:12.469Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML Diagram represents a file management system where a Folder contains multiple Documents and can also contain child Folders. Each Folder may optionally reference a parent Folder, forming a hierarchical structure.",
+    "classes": [
+      {
+        "name": "Document",
+        "attributes": [
+          "id",
+          "name",
+          "size"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Folder",
+        "attributes": [
+          "name",
+          "parent",
+          "date"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Folder",
+        "target": "Document",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Folder",
+        "target": "Folder",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "4.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-20T02:24:39.895Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML Diagram represents an order payment system where an Order is associated with multiple Payments. Payment serves as a superclass with specialized payment methods including Cash, Check, and Credit, each containing their own specific attributes.",
+    "classes": [
+      {
+        "name": "Order",
+        "attributes": [
+          "date",
+          "status"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Payment",
+        "attributes": [
+          "amount"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Cash",
+        "attributes": [
+          "cash"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Check",
+        "attributes": [
+          "name",
+          "id"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Credit",
+        "attributes": [
+          "number",
+          "type",
+          "date"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Order",
+        "target": "Payment",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Cash",
+        "target": "Payment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Check",
+        "target": "Payment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Credit",
+        "target": "Payment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "5.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-20T02:34:02.491Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML Diagram represents a generlization relationship where Citizen and Foreigner are specialized types of Person.",
+    "classes": [
+      {
+        "name": "Person",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Citizen",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Foreigner",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Citizen",
+        "target": "Person",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Foreigner",
+        "target": "Person",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "6.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-20T03:05:55.758Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML Diagram represents a person management system where a Person may be associated with one Address, and Student ia a specialized type of Person. The Diagram stores personal, contact, and address information.",
+    "classes": [
+      {
+        "name": "Person",
+        "attributes": [
+          "name",
+          "number",
+          "email"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Address",
+        "attributes": [
+          "street",
+          "city",
+          "state",
+          "postcode"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Student",
+        "attributes": [
+          "number",
+          "mark"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Person",
+        "target": "Address",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Student",
+        "target": "Person",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "7.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-20T02:59:46.126Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML Diagramn represents a packaging system where BoxMaximumWeight is a specialized type of Box and is associated with multiple Items. The model used to define box constrains and item containment.",
+    "classes": [
+      {
+        "name": "Box",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "BoxMaximumWeight",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Item",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "BoxMaximumWeight",
+        "target": "Box",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "BoxMaximumWeight",
+        "target": "Item",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "8.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-20T03:05:44.627Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML Diagram represents an ordering system where a Customer places multiple Orders. Each Order contains multiple Details, and each Detail may reference one Item.\nThe Diagram stores customer, order, and product detail information.",
+    "classes": [
+      {
+        "name": "Customer",
+        "attributes": [
+          "name",
+          "address"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Order",
+        "attributes": [
+          "date",
+          "status"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Detail",
+        "attributes": [
+          "quality"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Item",
+        "attributes": [
+          "description"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Customer",
+        "target": "Order",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Order",
+        "target": "Detail",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Detail",
+        "target": "Item",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "9.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-20T03:14:59.435Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML Diagram represents a library catalog system where a Library contains multiple Catalogs, each Catalog contains multiple Books, and Books can be associated with multiple Authors. The diagram stores book, author, and library information.",
+    "classes": [
+      {
+        "name": "Book",
+        "attributes": [
+          "title",
+          "ISBN",
+          "summary"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Author",
+        "attributes": [
+          "name"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Catalog",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Library",
+        "attributes": [
+          "name",
+          "address"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Book",
+        "target": "Author",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Catalog",
+        "target": "Book",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Library",
+        "target": "Catalog",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "10.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-20T03:20:14.031Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML Diagram represents a membership hierarchy where Lecturer and Student are specialized types of Members.",
+    "classes": [
+      {
+        "name": "Member",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Lecturer",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Student",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Lecturer",
+        "target": "Member",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Student",
+        "target": "Member",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "11.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-21T20:44:05.188Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML Diagram represents  character hierarchy where Aldeano and Guerrero are specialized types of Habitante.",
+    "classes": [
+      {
+        "name": "Habitante",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Aldeano",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Guerrero",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Aldeano",
+        "target": "Habitante",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Guerrero",
+        "target": "Habitante",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "12.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-21T20:46:48.925Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML diagram represents a library material hierarchy where LibMaterial is the superclass containing common material information such as id, availability, and author. Text, Audio, and Video are specialized types of library materials.",
+    "classes": [
+      {
+        "name": "LibMaterial",
+        "attributes": [
+          "id: string",
+          "available : boolean",
+          "author : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Text",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Audio",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Video",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Text",
+        "target": "LibMaterial",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Audio",
+        "target": "LibMaterial",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Video",
+        "target": "LibMaterial",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "13.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-21T20:55:29.856Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML diagram represents a product hierarchy where ConcreteProduct is a specialized type of Product.",
+    "classes": [
+      {
+        "name": "Product",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "ConcreteProduct",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "ConcreteProduct",
+        "target": "Product",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "14.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-21T20:56:26.954Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML diagram represents a task hierarchy where PeriodicTask is a specialized type of Task. The Task class stores a task name, while PeriodicTask adds periodicity information.",
+    "classes": [
+      {
+        "name": "Task",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "PeriodicTask",
+        "attributes": [
+          "periodicy : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "PeriodicTask",
+        "target": "Task",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "15.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-21T21:12:18.970Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents the Decorator design pattern. Component is the base class containing a common attribute, while ConcreteComponent and Decorator are specialized types of Component. Decorator maintains a reference to a component instance.",
+    "classes": [
+      {
+        "name": "Component",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "ConcreteComponent",
+        "attributes": [
+          "attB"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Decorator",
+        "attributes": [
+          "component"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "ConcreteComponent",
+        "target": "Component",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Decorator",
+        "target": "Component",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "16.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-21T21:14:56.365Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a bank account hierarchy where BankAccount is the superclass containing common account information such as owner and balance. CheckingAccount and SavingsAccount are specialized types of bank accounts with their own specific attributes.",
+    "classes": [
+      {
+        "name": "BankAccount",
+        "attributes": [
+          "owner : string",
+          "balance : float"
+        ],
+        "methods": []
+      },
+      {
+        "name": "CheckingAccount",
+        "attributes": [
+          "fee : double"
+        ],
+        "methods": []
+      },
+      {
+        "name": "SavingsAccount",
+        "attributes": [
+          "rate : float"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "CheckingAccount",
+        "target": "BankAccount",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "SavingsAccount",
+        "target": "BankAccount",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "17.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-21T21:17:27.096Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a language hierarchy where Language is the superclass containing common language information such as name and number of speakers. UKEnglish, USEnglish, and French are specialized types of Language, with French including an additional dialect attribute.",
+    "classes": [
+      {
+        "name": "Languaje",
+        "attributes": [
+          "name : string",
+          "numberOfSpeakers : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "USEnglish",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "French",
+        "attributes": [
+          "dialect : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "UKEnglish",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "UKEnglish",
+        "target": "Languaje",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "USEnglish",
+        "target": "Languaje",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "French",
+        "target": "Languaje",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "18.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-21T21:21:13.316Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a GUI layout hierarchy where GUILayout is the superclass containing width and height properties. PortraitLayout and LandscapeLayout are specialized layout types used for different screen orientations.",
+    "classes": [
+      {
+        "name": "GUILayout",
+        "attributes": [
+          "width : double",
+          "height : double"
+        ],
+        "methods": []
+      },
+      {
+        "name": "PortraitLayout",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "LandscapeLayout",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "PortraitLayout",
+        "target": "GUILayout",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "LandscapeLayout",
+        "target": "GUILayout",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "19.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-21T21:22:15.918Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a student hierarchy where MScStudent and BScStudent are specialized types of Student.",
+    "classes": [
+      {
+        "name": "Student",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "MScStudent",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "BScStudent",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "MScStudent",
+        "target": "Student",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "BScStudent",
+        "target": "Student",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "20.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-21T21:23:28.405Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML represents a diagram where GP it's a specialized class of Doctor",
+    "classes": [
+      {
+        "name": "Doctor",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "GP",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Doctor",
+        "target": "Doctor",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "21.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-22T15:00:34.062Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a user hierarchy where User is a specialized type of Person. The Person class stores a name attribute, while User adds authentication information such as username and password.",
+    "classes": [
+      {
+        "name": "Person",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "User",
+        "attributes": [
+          "username : string",
+          "password : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "User",
+        "target": "Person",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "22.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-22T15:04:27.431Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "",
+    "classes": [
+      {
+        "name": "SystemUser",
+        "attributes": [
+          "code : integer"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Customer",
+        "attributes": [
+          "customerNo : string",
+          "loyaltycard : boolean"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Staff",
+        "attributes": [
+          "staffid : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Administrator",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Administrator",
+        "target": "SystemUser",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Customer",
+        "target": "SystemUser",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Staff",
+        "target": "SystemUser",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "23.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-22T15:35:03.307Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a self-referential person hierarchy where a Person can be associated with other Person objects as parents and children. The class stores personal information such as name and age.",
+    "classes": [
+      {
+        "name": "Person",
+        "attributes": [
+          "name : string",
+          "age : double"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Person",
+        "target": "Person",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "24.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-22T15:39:08.686Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a conference management system where a Conference contains multiple Sessions, and each Session contains multiple Talks. Talks are presented by Speakers. The diagram stores information about conferences, sessions, talks, and presenters.",
+    "classes": [
+      {
+        "name": "Conference",
+        "attributes": [
+          "location : string",
+          "name : string",
+          "date : date"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Session",
+        "attributes": [
+          "time : int",
+          "title : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Speaker",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Talk",
+        "attributes": [
+          "title : string",
+          "lenght : int"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Conference",
+        "target": "Session",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Session",
+        "target": "Talk",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Speaker",
+        "target": "Talk",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "25.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-22T15:39:50.805Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a company structure where a Company contains multiple Divisions. Each Division belongs to one Company.",
+    "classes": [
+      {
+        "name": "Company",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Division",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Company",
+        "target": "Division",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "26.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-22T15:41:46.323Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a state machine model where a State is connected to multiple Transitions as source and target states. Each Transition contains a trigger condition, while each State has a name attribute.",
+    "classes": [
+      {
+        "name": "State",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Transition",
+        "attributes": [
+          "trigger : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "State",
+        "target": "Transition",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Transition",
+        "target": "State",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "27.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-22T15:43:48.975Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a university degree system where a DegreeProgramme contains multiple Modules and multiple Students. Students attend Modules, creating a many-to-many relationship between Student and Module.",
+    "classes": [
+      {
+        "name": "Student",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Module",
+        "attributes": [
+          "name : string",
+          "weight : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "DegreeProgramme",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "DegreeProgramme",
+        "target": "Student",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "DegreeProgramme",
+        "target": "Module",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Student",
+        "target": "Module",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "28.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T17:56:00.387Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "The UML Diagram represents a single class Location which is self-associated and contains coordinates for a neighborhood.",
+    "classes": [
+      {
+        "name": "Location",
+        "attributes": [
+          "x : double",
+          "y : double",
+          "label : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Location",
+        "target": "Location",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "29.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T18:29:51.243Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an interaction model where an Interaction contains multiple Lifelines. Each Lifeline may reference an Object and can send or receive multiple Messages. The diagram stores information about processes, objects, and message exchanges.",
+    "classes": [
+      {
+        "name": "Interaction",
+        "attributes": [
+          "processId : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Lifeline",
+        "attributes": [
+          "terminated : boolean"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Object",
+        "attributes": [
+          "name : string",
+          "class : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Message",
+        "attributes": [
+          "operation : string",
+          "sequenceNumber : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Interaction",
+        "target": "Lifeline",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Lifeline",
+        "target": "Object",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Lifeline",
+        "target": "Message",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Message",
+        "target": "Lifeline",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "30.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T18:44:42.257Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an ordering system where an Order contains multiple OrderItems. Each OrderItem stores item details such as item name, quantity, and price.",
+    "classes": [
+      {
+        "name": "Order",
+        "attributes": [
+          "orderNumber : string",
+          "total : double"
+        ],
+        "methods": []
+      },
+      {
+        "name": "OrderItem",
+        "attributes": [
+          "item : string",
+          "quantity : int",
+          "price : double"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Order",
+        "target": "OrderItem",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "31.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T18:46:58.002Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a state hierarchy where State is the superclass containing a name attribute. BasicState and CompositeState are specialized types of State. CompositeState can also contain multiple substates through a self-association with State.",
+    "classes": [
+      {
+        "name": "State",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "BasicState",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "CompositeState",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "BasicState",
+        "target": "State",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "CompositeState",
+        "target": "State",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "CompositeState",
+        "target": "State",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "32.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T18:50:29.255Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a publication system where Publications can reference and cite other Publications through a self-association. Publication is the superclass containing common bibliographic information, while Article and Book are specialized types of publications.",
+    "classes": [
+      {
+        "name": "Publication",
+        "attributes": [
+          "name : string",
+          "author : string",
+          "publisher : string",
+          "year : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Article",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Book",
+        "attributes": [
+          "website : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Article",
+        "target": "Publication",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Book",
+        "target": "Publication",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Publication",
+        "target": "Publication",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "33.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T18:52:48.653Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a university course system where Students attend multiple Courses. Student is the superclass containing common student information, while BScStudent and MScStudent are specialized student types.",
+    "classes": [
+      {
+        "name": "Student",
+        "attributes": [
+          "id : string",
+          "name : string",
+          "year : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Course",
+        "attributes": [
+          "code : string",
+          "credits : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "MScStudent",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Student",
+        "target": "Course",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "MScStudent",
+        "target": "Student",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "MScStudent",
+        "target": "Student",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "34.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T18:59:33.062Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an ordering system where a Customer places multiple Orders, and each Order contains multiple OrderItems. The diagram stores customer identifiers, order information, and product details.",
+    "classes": [
+      {
+        "name": "Customer",
+        "attributes": [
+          "customerid : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Order",
+        "attributes": [
+          "orderNo : int",
+          "total : double"
+        ],
+        "methods": []
+      },
+      {
+        "name": "OrderItem",
+        "attributes": [
+          "productCode : int",
+          "product : string",
+          "price : int",
+          "quantity : int"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Customer",
+        "target": "Order",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Order",
+        "target": "OrderItem",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "35.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T19:01:58.634Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an investment system where an Investor can own multiple Investments. Investment is the superclass containing common financial information such as price and term, while Equity and Bond are specialized investment types.",
+    "classes": [
+      {
+        "name": "Investor",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Investment",
+        "attributes": [
+          "price : double",
+          "term : double"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Equity",
+        "attributes": [
+          "symbol : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Bond",
+        "attributes": [
+          "issuer : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Investor",
+        "target": "Investment",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Equity",
+        "target": "Investment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Bond",
+        "target": "Investment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "36.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T23:08:30.023Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a hotel management system containing guests, managers, chefs, receptionists, housekeeping staff, rooms, bills, inventory, and food. Guests are managed by managers, chefs prepare food items, and receptionists manage guest bills. The system stores employee, guest, room, and service information.",
+    "classes": [
+      {
+        "name": "Manager",
+        "attributes": [
+          "name : string",
+          "id : int",
+          "phone : int",
+          "location : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Guest",
+        "attributes": [
+          "name : string",
+          "id : int",
+          "phone : string",
+          "address : string",
+          "room : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Inventory",
+        "attributes": [
+          "type : str",
+          "status : str"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Rooms",
+        "attributes": [
+          "number : int",
+          "location : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Food",
+        "attributes": [
+          "id",
+          "name"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Chef",
+        "attributes": [
+          "name : str",
+          "id : int",
+          "location : str"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Receptionist",
+        "attributes": [
+          "name : string",
+          "no : string",
+          "number : string",
+          "location : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Bill",
+        "attributes": [
+          "number : int",
+          "guestName : str"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Housekeeping",
+        "attributes": [
+          "name : string",
+          "id : int"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Manager",
+        "target": "Guest",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Chef",
+        "target": "Food",
+        "type": "association",
+        "multiplicity_source": "1..X",
+        "multiplicity_target": "1..X"
+      },
+      {
+        "source": "Receptionist",
+        "target": "Bill",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "0..X"
+      },
+      {
+        "source": "Guest",
+        "target": "Bill",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Inventory",
+        "target": "Food",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Housekeeping",
+        "target": "Rooms",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "37.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T23:09:37.591Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an engine monitoring system where an Engine owns one TemperatureSensor and one Display. The Engine class stores RPM information, while the sensor measures temperature and the display presents engine data.",
+    "classes": [
+      {
+        "name": "Engine",
+        "attributes": [
+          "rpm : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "TemperatureSensor",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Display",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Engine",
+        "target": "TemperatureSensor",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Engine",
+        "target": "Display",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "38.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T23:16:06.867Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an e-commerce system where a WebUser is associated with a Customer and owns a ShoppingCart. Customers can have multiple Accounts and place multiple Orders. Orders contain LineItems linked to Products, and Payments are associated with Orders.",
+    "classes": [
+      {
+        "name": "WebUser",
+        "attributes": [
+          "id : string",
+          "password : string",
+          "state : UserState"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Customer",
+        "attributes": [
+          "id : string",
+          "address : string",
+          "phone : Phone",
+          "email : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "ShoppingCart",
+        "attributes": [
+          "date : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Account",
+        "attributes": [
+          "id : string",
+          "address : string",
+          "isClosed : boolean",
+          "openDate",
+          "closeDate"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Payment",
+        "attributes": [
+          "id : string",
+          "paidDate",
+          "total",
+          "details"
+        ],
+        "methods": []
+      },
+      {
+        "name": "ListItem",
+        "attributes": [
+          "quantity",
+          "price"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Order",
+        "attributes": [
+          "number",
+          "date",
+          "shippedDate",
+          "address",
+          "status",
+          "total"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Product",
+        "attributes": [
+          "id",
+          "name",
+          "supplier"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "WebUser",
+        "target": "Customer",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "WebUser",
+        "target": "ShoppingCart",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Customer",
+        "target": "Account",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Account",
+        "target": "Order",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Order",
+        "target": "ListItem",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "ListItem",
+        "target": "Product",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Order",
+        "target": "Payment",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "39.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T23:17:39.433Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a document hierarchy where Document is the superclass containing common attributes such as author and date. Book and Email are specialized document types with their own specific attributes.",
+    "classes": [
+      {
+        "name": "Document",
+        "attributes": [
+          "author : string",
+          "date : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Book",
+        "attributes": [
+          "title : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Email",
+        "attributes": [
+          "subject : string",
+          "to : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Book",
+        "target": "Document",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Email",
+        "target": "Document",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "40.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T23:21:51.902Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a banking system where a Bank manages multiple Accounts and ATMs. Customers own Accounts, and Accounts contain multiple Transactions. CurrentAccount and SavingsAccount are specialized types of Account.",
+    "classes": [
+      {
+        "name": "Bank",
+        "attributes": [
+          "code",
+          "address"
+        ],
+        "methods": []
+      },
+      {
+        "name": "ATM",
+        "attributes": [
+          "location",
+          "number"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Customer",
+        "attributes": [
+          "name",
+          "address",
+          "dob",
+          "cardNumber",
+          "pin"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Account",
+        "attributes": [
+          "number",
+          "balance"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Transaction",
+        "attributes": [
+          "id",
+          "date",
+          "type",
+          "amount",
+          "balance"
+        ],
+        "methods": []
+      },
+      {
+        "name": "CurrentAccount ",
+        "attributes": [
+          "number",
+          "balance"
+        ],
+        "methods": []
+      },
+      {
+        "name": "SavingsAccount",
+        "attributes": [
+          "accountNo",
+          "balance"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Bank",
+        "target": "ATM",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Bank",
+        "target": "Account",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Customer",
+        "target": "Account",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Account",
+        "target": "Transaction",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "CurrentAccount ",
+        "target": "Account",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "SavingsAccount",
+        "target": "Account",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "41.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T23:32:27.632Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a publication hierarchy where Publication is the superclass containing a title attribute. Paperback and Hardcover are specialized publication types, each having Compilation and Succeding related classes with page information.",
+    "classes": [
+      {
+        "name": "Publication",
+        "attributes": [
+          "title : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "PaperBack",
+        "attributes": [
+          "id : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Hardcover",
+        "attributes": [
+          "id : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "CompilationR",
+        "attributes": [
+          "id : number",
+          "pages : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Sourceping",
+        "attributes": [
+          "id : int",
+          "pages : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Sweeping",
+        "attributes": [
+          "id : int",
+          "pages : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "CompilationL",
+        "attributes": [
+          "id : int",
+          "pages : int"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "PaperBack",
+        "target": "Publication",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "CompilationR",
+        "target": "PaperBack",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Sweeping",
+        "target": "PaperBack",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Hardcover",
+        "target": "Publication",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "CompilationR",
+        "target": "Hardcover",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Sourceping",
+        "target": "Hardcover",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "42.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T23:34:34.789Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a real estate management system where a House is associated with Tenants, Landlords, MaintenanceAgencies, and RealEstateAgencies. The model manages leasing, maintenance, and property administration relationships.",
+    "classes": [
+      {
+        "name": "MaintenenceAgency",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Tenant",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "House",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "RealEstateAgency",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Landlord",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Tenant",
+        "target": "House",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "MaintenenceAgency",
+        "target": "House",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "House",
+        "target": "RealEstateAgency",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "House",
+        "target": "Landlord",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "43.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T23:37:22.101Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a parts inventory system where a Part may optionally be managed by one StockManager. BasicPart and CompoundPart are specialized types of Part, with BasicPart including a unitPrice attribute and CompoundPart including a cost attribute.",
+    "classes": [
+      {
+        "name": "StockManager",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Part",
+        "attributes": [
+          "name"
+        ],
+        "methods": []
+      },
+      {
+        "name": "BasicPart",
+        "attributes": [
+          "unitPrice"
+        ],
+        "methods": []
+      },
+      {
+        "name": "CompoundPart",
+        "attributes": [
+          "cost"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "StockManager",
+        "target": "Part",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "BasicPart",
+        "target": "Part",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "CompoundPart",
+        "target": "Part",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "44.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T23:41:36.129Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an airport reservation system where a User can create Reservations. Airport belongs to a City and is associated with TicketList information. Admin is a specialized type of User. The diagram stores user, airport, reservation, and ticket information.",
+    "classes": [
+      {
+        "name": "User",
+        "attributes": [
+          "id",
+          "name",
+          "surname",
+          "phone",
+          "email",
+          "password"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Admin",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Reservation",
+        "attributes": [
+          "id : int",
+          "payment",
+          "seat : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Airport",
+        "attributes": [
+          "name : string",
+          "phone : string",
+          "address : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "TicketList",
+        "attributes": [
+          "time : string",
+          "isActive : boolean"
+        ],
+        "methods": []
+      },
+      {
+        "name": "City",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "User",
+        "target": "Reservation",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Airport",
+        "target": "TicketList",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "City",
+        "target": "Airport",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Admin",
+        "target": "User",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Reservation",
+        "target": "TicketList",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "45.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T23:47:32.357Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a restaurant management system where Persons can be Customers or Staff members associated with a Restaurant. Staff is specialized into WorkingStaff, CleaningStaff, and CookingStaff, with further specializations such as Waiter, Sommelier, Cleaner, and Sous-chef. Customers interact with WorkingStaff within the restaurant environment.",
+    "classes": [
+      {
+        "name": "Person",
+        "attributes": [
+          "name : string",
+          "address : string",
+          "phone : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Restaurant",
+        "attributes": [
+          "name : string",
+          "address : string",
+          "phone : string",
+          "website : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Customer",
+        "attributes": [
+          "name : string",
+          "reservation : string",
+          "allergies : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Staff",
+        "attributes": [
+          "name : string",
+          "address : string",
+          "phone : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "WorkingStaff",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "CleaningStaff",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Waiter",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Sommelier",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Cleaner",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Sous-chef",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "CookingStaff",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Person",
+        "target": "Restaurant",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Customer",
+        "target": "Person",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Staff",
+        "target": "Person",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Customer",
+        "target": "WorkingStaff",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "WorkingStaff",
+        "target": "Staff",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "CleaningStaff",
+        "target": "Staff",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "CookingStaff",
+        "target": "Staff",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Waiter",
+        "target": "WorkingStaff",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Sommelier",
+        "target": "WorkingStaff",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Cleaner",
+        "target": "CleaningStaff",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Sous-chef",
+        "target": "CookingStaff",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "46.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-23T23:50:38.370Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a living being hierarchy where LivingBeing is the superclass for Mammal and Plant. Tiger, Human, and Dog are specialized types of Mammal. Human is also associated with Address and Car, and has an association with Dog.",
+    "classes": [
+      {
+        "name": "LivingBeing",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Mammal",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Tiger",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Human",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Dog",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Plant",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Address",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Car",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Address",
+        "target": "Human",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Car",
+        "target": "Human",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Human",
+        "target": "Mammal",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Tiger",
+        "target": "Mammal",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Human",
+        "target": "Dog",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Mammal",
+        "target": "LivingBeing",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Plant",
+        "target": "LivingBeing",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "47.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T00:22:01.165Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an access control system where Users have Sessions and Roles, while Roles are associated with Permissions. Permissions are linked to Objects and Operations to define authorized actions within the system.",
+    "classes": [
+      {
+        "name": "User",
+        "attributes": [
+          "id : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Role",
+        "attributes": [
+          "name"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Permission",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Session",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Object",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Operation",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "User",
+        "target": "Role",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "User",
+        "target": "Session",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Role",
+        "target": "Permission",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Permission",
+        "target": "Object",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Permission",
+        "target": "Operation",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "48.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T00:34:05.739Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a banking account holder system where an AccountHolder can own multiple Accounts. IndividualHolder and CorporateHolder are specialized types of AccountHolder, storing personal and corporate contact information respectively.",
+    "classes": [
+      {
+        "name": "AccountHolder",
+        "attributes": [
+          "id : int",
+          "address : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Account",
+        "attributes": [
+          "balance : float"
+        ],
+        "methods": []
+      },
+      {
+        "name": "IndividualHolder",
+        "attributes": [
+          "name : string",
+          "SSN : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "CorporateHolder",
+        "attributes": [
+          "contact : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "AccountHolder",
+        "target": "Account",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1..*"
+      },
+      {
+        "source": "IndividualHolder",
+        "target": "AccountHolder",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "CorporateHolder",
+        "target": "AccountHolder",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "49.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T00:40:38.322Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a corporate voting and assembly management system where a Firm has multiple Shareholders and Assemblies. Assemblies are managed by an Admin and include Delegations and Votings. Shareholders can delegate votes and participate in votings through Vote entities.",
+    "classes": [
+      {
+        "name": "Firm",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Admin",
+        "attributes": [
+          "name : string",
+          "address : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Assembly",
+        "attributes": [
+          "startTime",
+          "endTime",
+          "percShares",
+          "maxNoDeleg"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Shareholder",
+        "attributes": [
+          "shares : int",
+          "id : string",
+          "name : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Delegation",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Voting",
+        "attributes": [
+          "name : string",
+          "chioceA : string",
+          "choiceB : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Vote",
+        "attributes": [
+          "choice : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Firm",
+        "target": "Admin",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Firm",
+        "target": "Shareholder",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1..*"
+      },
+      {
+        "source": "Firm",
+        "target": "Assembly",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "0..*"
+      },
+      {
+        "source": "Shareholder",
+        "target": "Assembly",
+        "type": "association",
+        "multiplicity_source": "0..*",
+        "multiplicity_target": "0..*"
+      },
+      {
+        "source": "Shareholder",
+        "target": "Delegation",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "0..*"
+      },
+      {
+        "source": "Assembly",
+        "target": "Delegation",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "0..*"
+      },
+      {
+        "source": "Assembly",
+        "target": "Voting",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "0..*"
+      },
+      {
+        "source": "Vote",
+        "target": "Voting",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "50.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T00:42:34.551Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a task management system where PeriodicTask is a specialized type of Task. A Worker can be associated with multiple PeriodicTasks, while each PeriodicTask may optionally reference one Worker.",
+    "classes": [
+      {
+        "name": "Task",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "PeriodicTask",
+        "attributes": [
+          "periodicy : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Worker",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "PeriodicTask",
+        "target": "Task",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Worker",
+        "target": "PeriodicTask",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "51.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T00:59:40.507Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an ordering and payment system where a Customer can place multiple Orders. Each Order is associated with one or more Payments. Payment is the superclass for different payment methods including Credit, Cash, and Check.",
+    "classes": [
+      {
+        "name": "Customer",
+        "attributes": [
+          "name ",
+          "address"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Order",
+        "attributes": [
+          "date",
+          "status"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Payment",
+        "attributes": [
+          "amount"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Credit",
+        "attributes": [
+          "number",
+          "type",
+          "expDate"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Cash",
+        "attributes": [
+          "cashTender"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Check",
+        "attributes": [
+          "name",
+          "bank"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Customer",
+        "target": "Order",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "0..*"
+      },
+      {
+        "source": "Order",
+        "target": "Payment",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1..*"
+      },
+      {
+        "source": "Credit",
+        "target": "Payment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Cash",
+        "target": "Payment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Check",
+        "target": "Payment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "52.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T01:02:58.789Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents the Composite design pattern. Component is the superclass for Leaf and Composite. Composite can contain multiple child Components and each Component may optionally reference a parent Composite.",
+    "classes": [
+      {
+        "name": "Component",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Leaf",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Composite",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Leaf",
+        "target": "Component",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Composite",
+        "target": "Component",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Composite",
+        "target": "Component",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "0..*"
+      }
+    ]
+  },
+  "53.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T01:08:41.031Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a seminar enrollment system where Students enroll in Seminars through Enrollment records. Students can also be placed on waiting lists for Seminars. Professors instruct multiple Seminars. The diagram stores student, seminar, enrollment, and professor information.",
+    "classes": [
+      {
+        "name": "Student",
+        "attributes": [
+          "name",
+          "address",
+          "phone",
+          "id",
+          "mark"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Enrollment",
+        "attributes": [
+          "marks"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Seminar",
+        "attributes": [
+          "name",
+          "#id",
+          "fees"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Professor",
+        "attributes": [
+          "name",
+          "address",
+          "phone",
+          "email",
+          "salary"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Student",
+        "target": "Enrollment",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1..*"
+      },
+      {
+        "source": "Enrollment",
+        "target": "Seminar",
+        "type": "association",
+        "multiplicity_source": "1..*",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Student",
+        "target": "Seminar",
+        "type": "association",
+        "multiplicity_source": "0..*",
+        "multiplicity_target": "'..*"
+      },
+      {
+        "source": "Professor",
+        "target": "Seminar",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "0..*"
+      }
+    ]
+  },
+  "54.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T01:13:21.104Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an ordering and payment system where a Customer can place multiple Orders. Each Order is associated with one or more Payments. Payment is the superclass for different payment methods including Credit, Cash, and Check.",
+    "classes": [
+      {
+        "name": "Customer",
+        "attributes": [
+          "name",
+          "address"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Order",
+        "attributes": [
+          "date",
+          "status"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Payment",
+        "attributes": [
+          "amount"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Credit",
+        "attributes": [
+          "number",
+          "type",
+          "expDate"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Cash",
+        "attributes": [
+          "cashTender"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Check",
+        "attributes": [
+          "name",
+          "bank"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Customer",
+        "target": "Order",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "0..*"
+      },
+      {
+        "source": "Order",
+        "target": "Payment",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1..*"
+      },
+      {
+        "source": "Credit",
+        "target": "Payment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Cash",
+        "target": "Payment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Check",
+        "target": "Payment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "55.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T01:19:50.539Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a healthcare management system where a User is associated with one Account. User is the superclass for Admin, Staff, Patient, and Transport. Staff is further specialized into Nurse, Assistant, and Doctor. The diagram stores user profile, personal, and account information.",
+    "classes": [
+      {
+        "name": "Account",
+        "attributes": [
+          "creationDate",
+          "profilePicture"
+        ],
+        "methods": []
+      },
+      {
+        "name": "User",
+        "attributes": [
+          "name : string",
+          "surname : string",
+          "dateOfBirth",
+          "sex : string",
+          "email : string",
+          "phone : string",
+          "address : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Admin",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Staff",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Patient",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Transport ",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Nurse",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Assistant",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Doctor",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Account",
+        "target": "User",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Admin",
+        "target": "User",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Staff",
+        "target": "User",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Patient",
+        "target": "User",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Transport ",
+        "target": "User",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Nurse",
+        "target": "Staff",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Assistant",
+        "target": "Staff",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Doctor",
+        "target": "Staff",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "56.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T01:31:02.217Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an ordering system where a Customer places multiple Orders, and each Order contains multiple OrderLines associated with Products. Customer is the superclass for CorporateCustomer and PersonalCustomer. CorporateCustomer may optionally be associated with an Employee.",
+    "classes": [
+      {
+        "name": "Order",
+        "attributes": [
+          "dateReceived",
+          "isPrepaid",
+          "number",
+          "price"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Customer",
+        "attributes": [
+          "name",
+          "address"
+        ],
+        "methods": []
+      },
+      {
+        "name": "OrderLine",
+        "attributes": [
+          "quantity",
+          "price"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Product",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "CorporateCustomer",
+        "attributes": [
+          "contact",
+          "creditRate",
+          "creditLimit"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Employee",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "PersonalCustomer",
+        "attributes": [
+          "creditCard"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Customer",
+        "target": "Order",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Order",
+        "target": "OrderLine",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "OrderLine",
+        "target": "Product",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "CorporateCustomer",
+        "target": "Customer",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "PersonalCustomer",
+        "target": "Customer",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "CorporateCustomer",
+        "target": "Employee",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "0..1"
+      }
+    ]
+  },
+  "57.bmp": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T03:49:11.677Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a banking management system where a Bank manages multiple Customers and Staff members. Customers can own multiple Accounts, and each Account has one AccountDetail. Staff members manage CustomerRecords associated with Customers and Accounts.",
+    "classes": [
+      {
+        "name": "Bank",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Customer",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Account",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "AccountDetail",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Staff",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "CustomerRecord",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Bank",
+        "target": "Customer",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Customer",
+        "target": "Account",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Account",
+        "target": "AccountDetail",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Bank",
+        "target": "Staff",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Staff",
+        "target": "CustomerRecord",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Customer",
+        "target": "CustomerRecord",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Account",
+        "target": "CustomerRecord",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "58.bmp": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T03:52:54.820Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a banking customer management system where Customers can own multiple Accounts and are associated with CustomerRecords. Banks manage CustomerRecords and employ multiple BankStaff members. Accounts may optionally reference an AccountID and a Balance.",
+    "classes": [
+      {
+        "name": "CustomerID",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "CustomerRecord",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Accounts",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "AccountID",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Balance",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Bank",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "BankStaff",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "CustomerID",
+        "target": "CustomerRecord",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "CustomerID",
+        "target": "Accounts",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1..*"
+      },
+      {
+        "source": "CustomerRecord",
+        "target": "Bank",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "CustomerRecord",
+        "target": "Accounts",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Bank",
+        "target": "BankStaff",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1..*"
+      },
+      {
+        "source": "Accounts",
+        "target": "AccountID",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Accounts",
+        "target": "Balance",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "0..*"
+      }
+    ]
+  },
+  "59.bmp": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T03:55:00.161Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an investment system where an Investor can own multiple Investments. Investment is the superclass containing common financial information such as price and term, while Equity and Bond are specialized investment types.",
+    "classes": [
+      {
+        "name": "Investor",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Investment",
+        "attributes": [
+          "price : double",
+          "term : double"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Equity",
+        "attributes": [
+          "symbol : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Bond",
+        "attributes": [
+          "issuer : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Investor",
+        "target": "Investment",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Equity",
+        "target": "Investment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Bond",
+        "target": "Investment",
+        "type": "inheritance",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "60.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T03:56:32.977Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a real estate system where Properties are sold by multiple Vendors and may optionally be listed by one EstateAgent. The diagram stores property pricing, vendor information, and estate agent contact details.",
+    "classes": [
+      {
+        "name": "Property",
+        "attributes": [
+          "price : double",
+          "postal : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Vendor",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "EstateAgent",
+        "attributes": [
+          "name : string",
+          "email : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Property",
+        "target": "Vendor",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "EstateAgent",
+        "target": "Property",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "61.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T03:59:06.799Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a cattery management system where a Cattery manages multiple Cats and is managed by one Person. Cats are owned by Persons and may optionally reside in one Cattery.",
+    "classes": [
+      {
+        "name": "Cattery",
+        "attributes": [
+          "name : string",
+          "address : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Cat",
+        "attributes": [
+          "breed : string",
+          "age : double",
+          "id : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Person",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Cattery",
+        "target": "Cat",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Cattery",
+        "target": "Person",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Cat",
+        "target": "Person",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "62.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T04:01:17.680Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a board game system where a Game contains one Board, and a Board contains multiple Squares. Pieces may optionally occupy Squares. The diagram stores square coordinates and piece labels.",
+    "classes": [
+      {
+        "name": "Game",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Board",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Square",
+        "attributes": [
+          "x : int",
+          "y : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Piece",
+        "attributes": [
+          "label : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Game",
+        "target": "Board",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Board",
+        "target": "Square",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Piece",
+        "target": "Square",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "0..1"
+      }
+    ]
+  },
+  "63.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T04:03:30.254Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a family system where a Family contains multiple FamilyMembers with roles such as father, mother, sons, and daughters. The Family class stores the family name, while FamilyMember stores member names.",
+    "classes": [
+      {
+        "name": "Family",
+        "attributes": [
+          "familyName : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "FamilyMember",
+        "attributes": [
+          "memberName : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Family",
+        "target": "FamilyMember",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Family",
+        "target": "FamilyMember",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Family",
+        "target": "FamilyMember",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Family",
+        "target": "FamilyMember",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Family",
+        "target": "FamilyMember",
+        "type": "association",
+        "multiplicity_source": "0..1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "64.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T04:05:34.954Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a transportation routing system where a Journey contains multiple Routes, and Routes connect multiple Places. TransportModes operate between Places. The diagram stores route, place, and transportation information including emissions and coordinates.",
+    "classes": [
+      {
+        "name": "Journey",
+        "attributes": [
+          "id : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Route",
+        "attributes": [
+          "id : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Place",
+        "attributes": [
+          "id : string",
+          "name : string",
+          "x : double",
+          "y : double"
+        ],
+        "methods": []
+      },
+      {
+        "name": "TransportMode",
+        "attributes": [
+          "name : string",
+          "emissions : double"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Journey",
+        "target": "Route",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Route",
+        "target": "Place",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "TransportMode",
+        "target": "Place",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "65.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T04:07:33.474Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents an OCR system where an OCR process recognizes multiple Regions, and each Region contains multiple Content elements. Regions store coordinate boundaries, while Content stores recognized text.",
+    "classes": [
+      {
+        "name": "OCR",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Region",
+        "attributes": [
+          "x1 : int",
+          "y1 : int",
+          "x2 : int",
+          "y2 : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Content",
+        "attributes": [
+          "text : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "OCR",
+        "target": "Region",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Region",
+        "target": "Content",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "66.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T04:08:51.212Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a church structure where a Church contains one Nave, one Chair, and multiple Aisles. The Church class stores denomination information.",
+    "classes": [
+      {
+        "name": "Church",
+        "attributes": [
+          "denomination : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Nave",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Aisle",
+        "attributes": [],
+        "methods": []
+      },
+      {
+        "name": "Chair",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Church",
+        "target": "Nave",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Church",
+        "target": "Chair",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      },
+      {
+        "source": "Church",
+        "target": "Aisle",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "67.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T04:15:16.744Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a banking system where a Bank has multiple BankBranches and multiple Customers. Customers can own multiple Accounts, and each Account belongs to one BankBranch. The diagram stores banking, branch, customer, and account information.",
+    "classes": [
+      {
+        "name": "Bank",
+        "attributes": [
+          "name : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "BankBranch",
+        "attributes": [
+          "sortCode : int",
+          "address : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Customer",
+        "attributes": [
+          "name : string",
+          "cld : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Account",
+        "attributes": [
+          "number : int",
+          "balance : double",
+          "overdrawn : boolean"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Bank",
+        "target": "BankBranch",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Bank",
+        "target": "Customer",
+        "type": "association",
+        "multiplicity_source": "*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Customer",
+        "target": "Account",
+        "type": "association",
+        "multiplicity_source": "1..*",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "BankBranch",
+        "target": "Account",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "68.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T04:21:55.279Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a programming structure where a Program contains multiple Procedures, and each Procedure contains multiple Statements. The Program class stores the programming language, while Procedure stores whether execution is sequential.",
+    "classes": [
+      {
+        "name": "Program",
+        "attributes": [
+          "languaje : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Procedure",
+        "attributes": [
+          "sequential : boolean"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Statement",
+        "attributes": [],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Program",
+        "target": "Procedure",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Procedure",
+        "target": "Statement",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      }
+    ]
+  },
+  "69.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T04:24:14.594Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a security monitoring system where a SecuritySystem monitors multiple Monitors and manages multiple Alarms. The system is controlled by one Controller. The diagram stores location, mode, and activation information.",
+    "classes": [
+      {
+        "name": "SecuritySystem",
+        "attributes": [
+          "location : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Monitor",
+        "attributes": [
+          "location : int",
+          "mode : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Alarm",
+        "attributes": [
+          "on : boolean"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Controller",
+        "attributes": [
+          "active : boolean"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "SecuritySystem",
+        "target": "Monitor",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "SecuritySystem",
+        "target": "Alarm",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "SecuritySystem",
+        "target": "Controller",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "1"
+      }
+    ]
+  },
+  "70.jpg": {
+    "metadata": {
+      "annotator": "Felipe",
+      "timestamp_created": "2026-05-20T01:55:48.206Z",
+      "timestamp_modified": "2026-05-24T04:30:29.106Z",
+      "verified": false,
+      "verifier": null,
+      "timestamp_verified": null,
+      "status": "completed"
+    },
+    "description": "This UML diagram represents a document structure where a Document contains multiple Parts, each Part contains multiple Chapters, and each Chapter contains multiple Sections. Sections contain multiple Paragraphs. The diagram stores document hierarchy and textual content information.",
+    "classes": [
+      {
+        "name": "Document",
+        "attributes": [
+          "title : string",
+          "author : string",
+          "url : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Part",
+        "attributes": [
+          "name : string",
+          "number : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Chapter",
+        "attributes": [
+          "name : string",
+          "number : int"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Paragraph",
+        "attributes": [
+          "text : string"
+        ],
+        "methods": []
+      },
+      {
+        "name": "Section",
+        "attributes": [
+          "title : string",
+          "number : string"
+        ],
+        "methods": []
+      }
+    ],
+    "relationships": [
+      {
+        "source": "Document",
+        "target": "Part",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Part",
+        "target": "Chapter",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Chapter",
+        "target": "Section",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      },
+      {
+        "source": "Section",
+        "target": "Paragraph",
+        "type": "association",
+        "multiplicity_source": "1",
+        "multiplicity_target": "*"
+      }
+    ]
+  }
+}

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UML Annotator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── Recovery Dialog ───────────────────────────────────────────────────── -->
+<div id="recovery-dialog">
+  <div class="dialog-box">
+    <div class="dialog-title">&#9889; Unsaved Draft Found</div>
+    <div class="dialog-body" id="recovery-info">A previous session was found.</div>
+    <div class="dialog-actions">
+      <button class="btn btn-primary" id="btn-resume">Resume Session</button>
+      <button class="btn btn-secondary" id="btn-discard">Discard Draft</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Login Screen ──────────────────────────────────────────────────────── -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">UML &middot; Annotator</div>
+    <div class="login-title">Start Session</div>
+    <div class="login-subtitle">Handwritten UML Class Diagram Dataset</div>
+    <form id="login-form">
+      <div class="form-group">
+        <label class="form-label" for="login-role">Role</label>
+        <select class="input select" id="login-role">
+          <option value="annotator">Annotator</option>
+          <option value="verifier">Verifier</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="login-username">Username</label>
+        <input class="input" type="text" id="login-username"
+          placeholder="e.g. Mary" autocomplete="off" required>
+      </div>
+      <button class="btn btn-primary" type="submit" style="width:100%">Begin &rarr;</button>
+    </form>
+  </div>
+</div>
+
+<!-- ── App Shell ─────────────────────────────────────────────────────────── -->
+<div id="app-shell">
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="topbar-brand">UML&middot;ANN</div>
+    <div class="topbar-divider"></div>
+    <div class="topbar-item">Role: <strong id="topbar-role">-</strong></div>
+    <div class="topbar-item">User: <strong id="topbar-user">-</strong></div>
+    <div class="topbar-divider"></div>
+    <div class="topbar-image"><strong id="topbar-image">No image</strong></div>
+    <div class="topbar-divider"></div>
+    <span id="topbar-status" class="status-badge status--not_started">not started</span>
+    <div class="topbar-spacer"></div>
+    <div id="autosave-indicator" class="autosave-indicator"></div>
+    <div class="topbar-divider"></div>
+    <button class="btn btn-sm btn-secondary" id="btn-theme-toggle">Light mode</button>
+    <div class="topbar-divider"></div>
+    <button class="btn btn-sm btn-danger" id="btn-signout" title="Return to login screen">Sign Out</button>
+    <div class="topbar-divider"></div>
+    <button class="btn btn-sm btn-about-trigger" id="btn-about" title="About &amp; User Guide"><strong>?</strong></button>
+  </div>
+
+  <!-- Main layout -->
+  <div class="main-layout">
+
+    <!-- ── Left Panel ──────────────────────────────────────────────────── -->
+    <div class="left-panel">
+
+      <div class="image-header">
+        <span class="image-filename" id="image-filename">-</span>
+        <span class="image-counter" id="image-counter">0 / 0</span>
+        <button class="btn btn-sm btn-secondary" id="btn-load-images">Load Images</button>
+      </div>
+
+      <div class="image-container">
+        <img id="image-viewer" src="" alt="UML diagram" style="display:none">
+        <div id="image-placeholder">No images loaded. Use Load Images to begin.</div>
+      </div>
+
+      <div class="nav-bar">
+        <button class="btn btn-secondary" id="btn-prev" disabled>&larr; Prev</button>
+        <button class="btn btn-secondary" id="btn-next" disabled>Next &rarr;</button>
+      </div>
+
+      <!-- Progress Dashboard -->
+      <div class="progress-section">
+        <div class="progress-stats">
+          <div class="progress-stat">Total: <strong id="prog-total">0</strong></div>
+          <div class="progress-stat">Done: <strong id="prog-completed">0</strong></div>
+          <div class="progress-stat">Verified: <strong id="prog-verified">0</strong></div>
+          <div class="progress-stat">Left: <strong id="prog-remaining">0</strong></div>
+        </div>
+        <div class="progress-bar-track">
+          <div id="progress-bar-fill" style="width:0%"></div>
+        </div>
+        <div class="progress-pct-label"><span id="progress-pct">0%</span> complete</div>
+      </div>
+
+      <!-- Image list -->
+      <div class="image-list-panel">
+        <div class="image-list-header">Images</div>
+        <div id="image-list"></div>
+      </div>
+
+    </div>
+
+    <!-- ── Right Panel: Semantic Editor ───────────────────────────────── -->
+    <div class="right-panel">
+
+      <div class="editor-header">
+        <span class="editor-title">Semantic Annotation Editor</span>
+        <div class="editor-actions">
+          <button class="btn btn-sm btn-secondary" id="btn-validate">Validate</button>
+          <button class="btn btn-sm btn-success" id="btn-complete">Mark Complete</button>
+        </div>
+      </div>
+
+      <!--
+        #editor-area is the scroll container.
+        #editor-overlay covers the editor when no image is loaded.
+        #editor-content holds the real editor — never destroyed.
+      -->
+      <div id="editor-area">
+
+        <!-- Overlay shown when no image is active. Hides when image loads. -->
+        <div id="editor-overlay">
+          <p class="editor-empty">Load images to begin annotating.</p>
+        </div>
+
+        <!-- Real editor content — always in the DOM, never wiped -->
+        <div id="editor-content" style="display:none">
+
+          <!-- Validation errors -->
+          <ul id="validation-errors" style="display:none"></ul>
+
+          <!-- Verifier panel -->
+          <div class="verifier-panel" id="verifier-panel" style="display:none">
+            <div class="verifier-panel-title">Verifier Controls</div>
+            <button class="btn btn-success" id="verify-btn">Mark Verified</button>
+          </div>
+
+          <!-- Description -->
+          <div class="editor-section">
+            <div class="section-header">
+              <span class="section-title">Description</span>
+            </div>
+            <textarea class="input" id="field-description"
+              placeholder="Natural language description of this UML diagram..." rows="3"></textarea>
+          </div>
+
+          <!-- Classes -->
+          <div class="editor-section">
+            <div class="section-header">
+              <span class="section-title">Classes</span>
+              <button class="btn btn-sm btn-ghost" id="btn-add-class">+ Add Class</button>
+            </div>
+            <div id="classes-container"></div>
+          </div>
+
+          <!-- Relationships -->
+          <div class="editor-section">
+            <div class="section-header">
+              <span class="section-title">Relationships</span>
+              <button class="btn btn-sm btn-ghost" id="btn-add-rel">+ Add Relationship</button>
+            </div>
+            <div id="relationships-container"></div>
+          </div>
+
+          <!-- Metadata -->
+          <div class="editor-section">
+            <div class="section-header">
+              <span class="section-title">Metadata</span>
+            </div>
+            <div class="meta-panel" id="meta-panel">
+              <div class="meta-row">
+                <span class="meta-key">-</span>
+                <span class="meta-val">Load an image to view metadata.</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /#editor-content -->
+
+      </div><!-- /#editor-area -->
+
+    </div><!-- /right-panel -->
+
+  </div><!-- /main-layout -->
+
+  <!-- Bottom Bar -->
+  <div class="bottombar">
+    <button class="btn btn-secondary" id="btn-import">Import JSON</button>
+    <button class="btn btn-primary" id="btn-export">Export JSON</button>
+    <div class="bottombar-spacer"></div>
+    <div class="shortcut-hint">
+      <kbd>N</kbd> Next &nbsp;
+      <kbd>P</kbd> Prev &nbsp;
+      <kbd>Ctrl</kbd>+<kbd>S</kbd> Export
+    </div>
+  </div>
+
+</div><!-- /app-shell -->
+
+  <!-- ── About Modal ───────────────────────────────────────────────────────── -->
+  <div id="about-modal">
+    <div class="about-box">
+      <div class="about-header">
+        <div class="about-title">UML Annotator </div>
+        <button class="btn btn-icon btn-secondary" id="btn-about-close" title="Close">&#x2715;</button>
+      </div>
+      <div class="about-body">
+
+        <div class="about-section">
+          <div class="about-section-title">What is this?</div>
+          <p>A local-only, browser-based tool for semantically annotating handwritten UML class diagram images for research datasets. No server, no cloud, no authentication — just open <code>index.html</code> and annotate.</p>
+        </div>
+
+        <div class="about-section">
+          <div class="about-section-title">Quick Start</div>
+          <ol>
+            <li>Open <code>index.html</code> in Chrome, Firefox or Edge.</li>
+            <li>Select a <strong>role</strong> (Annotator or Verifier) and enter a username, then click <strong>Begin</strong>.</li>
+            <li>Click <strong>Load Images</strong> to select your diagram images from disk.</li>
+            <li>For each image, fill in the <strong>Description</strong>, add <strong>Classes</strong> (with attributes and methods), and define <strong>Relationships</strong> between classes.</li>
+            <li>Click <strong>Mark Complete</strong> when an image is fully annotated.</li>
+            <li>Use <strong>Validate</strong> at any time to check for schema errors.</li>
+            <li>Click <strong>Export JSON</strong> (or press <kbd>Ctrl+S</kbd>) to save your work as <code>annotations.json</code>.</li>
+          </ol>
+        </div>
+
+        <div class="about-section">
+          <div class="about-section-title">Roles</div>
+          <ul>
+            <li><strong>Annotator</strong> — creates and edits semantic annotations.</li>
+            <li><strong>Verifier</strong> — reviews completed annotations and marks them as verified. Only verifiers see the Verifier Controls panel.</li>
+          </ul>
+        </div>
+
+        <div class="about-section">
+          <div class="about-section-title">Relationship Types</div>
+          <p>Allowed values (strict enum, no free text):</p>
+          <div class="about-tags">
+            <span class="about-tag">association</span>
+            <span class="about-tag">inheritance</span>
+            <span class="about-tag">aggregation</span>
+            <span class="about-tag">composition</span>
+            <span class="about-tag">dependency</span>
+            <span class="about-tag">realization</span>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <div class="about-section-title">Annotation Status</div>
+          <div class="about-tags">
+            <span class="about-tag status--not_started">not started</span>
+            <span class="about-tag status--in_progress">in progress</span>
+            <span class="about-tag status--completed">completed</span>
+            <span class="about-tag status--verified">verified</span>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <div class="about-section-title">Keyboard Shortcuts</div>
+          <table class="about-keys">
+            <tr><td><kbd>N</kbd></td><td>Next image</td></tr>
+            <tr><td><kbd>P</kbd></td><td>Previous image</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Export annotations.json</td></tr>
+          </table>
+        </div>
+
+        <div class="about-section">
+          <div class="about-section-title">Autosave &amp; Recovery</div>
+          <p>Work is autosaved to <code>localStorage</code> every ~2 seconds. If the browser closes unexpectedly, the draft recovery dialog appears on next launch (or after Sign Out). Images must be reloaded after a recovery — annotation data is fully preserved.</p>
+        </div>
+
+        <div class="about-section">
+          <div class="about-section-title">Import / Export</div>
+          <p>The dataset is a single <code>annotations.json</code> file keyed by image filename. Use <strong>Import JSON</strong> to merge an existing dataset, and <strong>Export JSON</strong> to save. Multiple annotators can work on separate exports and merge them via Import.</p>
+        </div>
+
+        <div class="about-section about-section--meta">
+          <div class="about-section-title">Author &amp; License</div>
+          <p>Developed for academic / research use.<br>
+          Released under the <strong>MIT License</strong>.</p>
+          <div class="about-license">
+            MIT License<br><br>
+            Copyright (c) 2026 Sergio Rojas-Galeano<br><br>
+            Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &ldquo;Software&rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br><br>
+            The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br><br>
+            THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+          </div>
+        </div>
+
+      </div><!-- /.about-body -->
+      <div class="about-footer">
+        <button class="btn btn-primary" id="btn-about-close-bottom">Close</button>
+      </div>
+    </div><!-- /.about-box -->
+  </div><!-- /#about-modal -->
+
+<div class="toast" id="toast"></div>
+
+<script src="schema.js"></script>
+<script src="storage.js"></script>
+<script src="ui.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
