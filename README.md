@@ -1,30 +1,65 @@
-# UML Semantic Annotation Tool
+# UML Annotator
 
-A local-only, frontend-only semantic annotation tool for handwritten UML class diagram datasets.
+> Semantic annotation of handwritten UML class diagrams — local, fast, zero dependencies.
+
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Vanilla JS](https://img.shields.io/badge/built%20with-Vanilla%20JS-f7df1e.svg)
+![GitHub Pages](https://sargaleano.github.io/uml-annotator/actions/workflows/pages/pages-build-deployment/badge.svg)
+
+---
+
+<!-- Replace with your screenshot: recommended 1400×860 px, save as images/screenshot_main.png -->
+![UML Annotator — Main Interface](screenshot-uml-annotator.png)
+
+---
+
+## What it does
+
+Captures the **semantic structure** of handwritten UML class diagrams — classes, attributes, methods, and typed relationships — as validated JSON ground truth for machine learning and computer vision research. No bounding boxes. No OCR. Just meaning.
+
+👉 **[Live demo](https://sargaleano.github.io/uml-annotator/)** — open in any modern browser, no install needed.
+
+👉 Or, **run locally**. No build step required. Just clone and open:
+ 
+```bash
+git clone https://github.com/sargaleano/uml-annotator.git
+cd uml-annotator
+open index.html          # macOS
+# or: start index.html   # Windows
+# or: xdg-open index.html  # Linux
+```
+ 
+Alternatively simply download the ZIP from the green **Code** button above and open any `index.html` file directly in your browser.
+ 
+---
 
 ## Quick Start
 
-1. Copy your diagram images into the `images/` folder (or load them at runtime)
-2. Open `index.html` in any modern browser (Chrome, Firefox, Edge)
-3. Select your role (Annotator or Verifier) and enter a username
-4. Click **Load Images** to select your image files from disk
-5. Annotate each diagram using the semantic editor on the right
-6. Export your work as `annotations.json` using the Export button or `Ctrl+S`
-
-## File Structure
-
 ```
-uml-annotation-tool/
-├── index.html        ← Open this in your browser
-├── style.css         ← Stylesheet
-├── app.js            ← Global state, coordination, keyboard shortcuts
-├── ui.js             ← Rendering, forms, progress dashboard
-├── storage.js        ← localStorage autosave, import/export
-├── schema.js         ← JSON schema, validation, UML ontology
-├── images/           ← Place your diagram images here (optional)
-└── data/
-    └── annotations.json  ← Sample / exported annotations
+1. Open index.html in Chrome, Firefox or Edge
+2. Select a role (Annotator or Verifier) and enter a username
+3. Load Images → annotate → Validate → Mark Complete → Export JSON
 ```
+
+Keyboard shortcuts: `N` next · `P` previous · `Ctrl+S` export
+
+
+> **Sample images included.** The `images/` folder contains a set of handwritten UML class diagram images from Piucco (2021), released into the public domain (CC0). After cloning, load them directly into the tool with **Load Images** — or use any UML diagram images from your own files.
+---
+
+## Features
+
+| | |
+|---|---|
+| 🎯 Semantic editor | Classes, attributes, methods, typed relationships, multiplicities |
+| ✅ Two-level validation | Structural integrity + completeness, with clear error messages |
+| 👥 Two-role workflow | Annotator creates · Verifier approves, with name and timestamp |
+| 💾 Autosave | localStorage every 2 s, full session recovery on crash or sign-out |
+| 📦 Import / Export | JSON with filename and schema mismatch detection |
+| 🌗 Dark / light theme | Preference saved across sessions |
+
+---
 
 ## Workflow
 
@@ -35,6 +70,10 @@ uml-annotation-tool/
 - Use **Validate** at any time to check for errors
 - Export regularly with **Export JSON** or `Ctrl+S`
 
+
+👉 **Allowed relationship types**: `association` · `inheritance` · `aggregation` · `composition` · `dependency` · `realization`
+
+
 ### Verifier Mode
 - Import an existing `annotations.json`
 - Load images
@@ -42,15 +81,15 @@ uml-annotation-tool/
 - Click **Mark Verified** to approve or **Remove Verification** to revoke
 - Export the verified dataset
 
-## Keyboard Shortcuts
+👉 **Allowed completion status**: 
+- `not_started` — no content yet
+- `in_progress` — partially annotated
+- `completed` — fully annotated, ready for verification
+- `verified` — reviewed and approved by a verifier
 
-| Key | Action |
-|-----|--------|
-| `N` | Next image |
-| `P` | Previous image |
-| `Ctrl+S` | Export annotations.json |
+---
 
-## Annotation Format
+## Output Format
 
 ```json
 {
@@ -85,29 +124,59 @@ uml-annotation-tool/
 }
 ```
 
-### Status Values
-- `not_started` — no content yet
-- `in_progress` — partially annotated
-- `completed` — fully annotated, ready for verification
-- `verified` — reviewed and approved by a verifier
+---
 
-### Relationship Types
-- `association`
-- `inheritance`
-- `aggregation`
-- `composition`
-- `dependency`
-- `realization`
+## Repo Structure
 
-## Autosave & Recovery
+```
+uml-annotator/
+├── index.html        ← entry point (main UI)
+├── style.css         ← dark/light themes via CSS variables
+├── app.js            ← state and coordination
+├── ui.js             ← rendering and events
+├── storage.js        ← autosave and import/export
+├── schema.js         ← validation and UML ontology
+├── annotations.json  ← Sample / exported annotations
+└── images/           ← sample diagram images (replace with yours)
 
-The tool autosaves your work to `localStorage` every ~2 seconds after a change. If your browser closes unexpectedly, you'll be offered the chance to **Resume Session** on next launch.
+```
 
-Since `localStorage` does not persist object URLs for images across sessions, you'll need to reload your images after resuming. All annotation data is preserved.
+---
+ 
+## Citation
+ 
+If you use this software in academic work, please cite:
+ 
+```
+Rojas-Galeano, S. (2026). UML Annotator: Semantic annotation of handwritten UML class diagrams (v1.0). Universidad Distrital Francisco José de Caldas.
+MIT License. https://sargaleano.github.io/uml-annotator/
+```
+---
+ 
+## License
+ 
+Copyright (c) 2026 Sergio Rojas-Galeano
+ 
+Released under the **MIT License** — free to use, modify, and distribute with attribution.
+See [`LICENSE`](LICENSE) for the full text.
+ 
+---
+ 
+## Contact
+ 
+**Sergio Rojas-Galeano**
 
-## Notes
+Universidad Distrital Francisco José de Caldas · Bogotá, Colombia
 
-- No backend, no database, no authentication required
-- All data stays in your browser/localStorage until exported
-- Import existing `annotations.json` to continue collaborative work
-- Images are referenced by filename — keep filenames consistent
+✉ srojas@udistrital.edu.co
+
+---
+
+## Acknowledgements
+
+Thanks to **Leticia Piucco** for creating and sharing the handwritten UML class diagram dataset, and to **Iván Felipe Prado-Blanco** (ifpradob@udistrital.edu.co) for providing the sample annotations file.
+
+## References
+
+> Piucco, L. (2021). *Handwritten UML Class diagrams* [Data set]. Kaggle.
+> https://www.kaggle.com/datasets/leticiapiucco/handwritten-uml-class-diagrams
