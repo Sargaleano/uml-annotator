@@ -12,7 +12,7 @@
 <!-- 
 ![UML Annotator — Main Interface](screenshot.png)
 -->
-<img src="screenshot.png" alt="UML Annotator — Main Interface" width="50%" class="center"/>
+<img src="screenshot.png" alt="UML Annotator — Main Interface" width="50%" align="center"/>
 
 ---
 
