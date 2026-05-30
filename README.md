@@ -12,7 +12,7 @@
 <!-- 
 ![UML Annotator — Main Interface](screenshot.png)
 -->
-                 <img src="screenshot.png" alt="UML Annotator — Main Interface" width="50%"/>
+<img src="screenshot.png" alt="UML Annotator — Main Interface" width="50%"/>
 
 ---
 
@@ -176,7 +176,7 @@ Universidad Distrital Francisco José de Caldas · Bogotá, Colombia
 
 ## Acknowledgements
 
-Thanks to **Leticia Piucco** for creating and sharing the handwritten UML class diagram dataset, and to **Iván Felipe Prado-Blanco** (ifpradob@udistrital.edu.co) for providing the sample annotations file.
+Thanks to **Leticia Piucco** for creating and sharing the handwritten UML class diagram dataset, and to **Iván Felipe Prado-Blanco** (ifpradob@udistrital.edu.co) for providing the initial sample annotations file.
 
 ## References
 
