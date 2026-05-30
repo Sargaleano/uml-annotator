@@ -5,7 +5,6 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Vanilla JS](https://img.shields.io/badge/built%20with-Vanilla%20JS-f7df1e.svg)
-![GitHub Pages](https://sargaleano.github.io/uml-annotator/actions/workflows/pages/pages-build-deployment/badge.svg)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen.svg)](https://sargaleano.github.io/uml-annotator/)
 ---
 
